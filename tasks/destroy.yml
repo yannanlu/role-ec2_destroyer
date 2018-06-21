@@ -29,12 +29,12 @@
     region: "{{region}}"
     filters:
       vpc_id: "{{vpc_id}}"
-      group_name: "{{sg_name|default(key_name + '_sq')}}"
+      group_name: "{{sg_name|default(key_name + '_sg')}}"
   register: ec2_sg_info
 
 - name: Take security group down
   ec2_group:
-    name: "{{sg_name|default(key_name + '_sq')}}"
+    name: "{{sg_name|default(key_name + '_sg')}}"
     profile: "{{profile}}"
     region: "{{region}}"
     state: 'absent'
