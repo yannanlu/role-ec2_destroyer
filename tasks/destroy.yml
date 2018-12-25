@@ -18,9 +18,9 @@
   with_items: "{{ec2_info.instances}}"
   when: ec2_info.instances|length > 0
 
-- name: Pause for a minute
+- name: Pause for a while
   pause:
-    seconds: "{{pause_for_down}}" 
+    seconds: "{{pause_for_down}}"
   when: ec2_info.instances|length > 0
 
 - name: Get ec2 security group facts (boto3 required)
